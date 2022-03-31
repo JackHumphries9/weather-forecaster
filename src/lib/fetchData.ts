@@ -68,6 +68,24 @@ const weatherTypeToLabel = (wT: string) => {
 	return lookup[parseInt(wT)];
 };
 
+const timeCalc = (time: number) => {
+	let tStr = '';
+
+	if (time === 0) {
+		tStr = `12am`;
+	} else if (time >= 12) {
+		if (time === 12) {
+			tStr = '12pm';
+		} else {
+			tStr = `${time - 12}pm`;
+		}
+	} else {
+		tStr = `${time}am`;
+	}
+
+	return tStr;
+};
+
 export const fetchData = async (): Promise<IThreeHourData[]> => {
 	const dataRes = [];
 
@@ -93,7 +111,7 @@ export const fetchData = async (): Promise<IThreeHourData[]> => {
 	dataRes.forEach((data: any) => {
 		const ds: any = [];
 
-		data.SiteRep.DV.Location.Period[0].Rep.forEach((item: any) => {
+		data.SiteRep.DV.Location.Period[1].Rep.forEach((item: any) => {
 			ds.push(item);
 		});
 		dataSeg.push(ds);
@@ -110,7 +128,7 @@ export const fetchData = async (): Promise<IThreeHourData[]> => {
 			};
 		});
 
-		d['time'] = `${date}`;
+		d['time'] = `${timeCalc(i * 3)}`;
 		d['collectedAt'] = `${date.toISOString().substr(11, 5)}`;
 		fData.push(d);
 	});

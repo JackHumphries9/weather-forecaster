@@ -11,17 +11,14 @@ export const RemotionVideo: React.FC = () => {
 	const [handle] = useState(() => delayRender());
 
 	const getData = async () => {
-		// if (localStorage.getItem('data')) {
-		// 	setData(JSON.parse(localStorage.getItem('data')!) as IThreeHourData[]);
-		// } else {
-		// 	const result = await fetchData();
-		// 	localStorage.setItem('data', JSON.stringify(result));
+		if (localStorage.getItem('data')) {
+			setData(JSON.parse(localStorage.getItem('data')!) as IThreeHourData[]);
+		} else {
+			const result = await fetchData();
+			localStorage.setItem('data', JSON.stringify(result));
 
-		// 	setData(result);
-		// }
-		const result = await fetchData();
-
-		setData(result);
+			setData(result);
+		}
 
 		continueRender(handle);
 	};

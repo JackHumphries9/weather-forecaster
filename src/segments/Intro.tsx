@@ -11,7 +11,7 @@ export const Intro = () => {
 		[0, 1, 1, 0]
 	);
 
-	const curDate = new Date();
+	const curDate = new Date(Date.now() + 3600 * 1000 * 24);
 	const dateStr = curDate.toLocaleDateString(undefined, {
 		weekday: 'long',
 		year: 'numeric',
