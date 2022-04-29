@@ -23,6 +23,8 @@
 
 I came across the [Remotion](https://remotion.dev) project and I was immediately inspired. I thought, what about a weather forecast which automatically is uploaded to social media and I developed this. It automatically renders a video every day with data from the Met Office API and uploads it to YouTube. (I want to add more in the future such as Instagram and Tiktok).
 
+You can checkout the videos [here](https://www.youtube.com/channel/UCbXyETL8qMedIdeZ1-IK0Rg)
+
 ### Built With
 
 - [Remotion](https://remotion.dev)
